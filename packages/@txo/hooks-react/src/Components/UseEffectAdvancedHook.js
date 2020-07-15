@@ -7,6 +7,8 @@
 
 import React from 'react'
 
+const DEFAULT_KEY = 'default'
+
 export const useSuppressableEffect = (
   create: ({
     suppressEffect: () => void,
@@ -14,18 +16,20 @@ export const useSuppressableEffect = (
   }) => (() => void) | void,
   deps: mixed[] | void | null,
   clearSuppressDeps: mixed[] | void | null,
+  key?: string,
 ) => {
-  const isSuppressedRef = React.useRef(false)
+  const mapKey = key || DEFAULT_KEY
+  const isSuppressedMapRef = React.useRef({})
   const suppressEffect = React.useCallback(() => {
-    isSuppressedRef.current = true
-  }, [isSuppressedRef])
+    isSuppressedMapRef.current[mapKey] = true
+  }, [isSuppressedMapRef])
   React.useEffect(() => {
-    isSuppressedRef.current = false
+    isSuppressedMapRef.current[mapKey] = false
   }, [clearSuppressDeps])
   React.useEffect(() => (
     create({
       suppressEffect,
-      isSuppressed: isSuppressedRef.current,
+      isSuppressed: !!isSuppressedMapRef.current[mapKey],
     })
   ), deps)
 }
