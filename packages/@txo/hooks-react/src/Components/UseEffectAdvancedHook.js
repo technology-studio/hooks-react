@@ -31,5 +31,5 @@ export const useSuppressableEffect = (
       suppressEffect,
       isSuppressed: !!isSuppressedMapRef.current[mapKey],
     })
-  ), deps)
+  ), [...(deps || []), mapKey])
 }
