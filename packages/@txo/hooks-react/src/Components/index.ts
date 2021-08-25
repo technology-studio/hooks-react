@@ -7,3 +7,4 @@
 export * from './DebugHooks'
 export * from './UseEffectAdvancedHook'
 export * from './UseLatest'
+export * from './UseMemoObject'
