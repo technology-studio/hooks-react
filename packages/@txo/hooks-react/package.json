@@ -1,6 +1,6 @@
 {
   "name": "@txo/hooks-react",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Technology Studio - Hooks react",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -24,7 +24,7 @@
     "prepare": "yarn build"
   },
   "dependencies": {
-    "@txo/functional": "^4.0.1"
+    "@txo/functional": "^4.4.0"
   },
   "peerDependencies": {}
 }
