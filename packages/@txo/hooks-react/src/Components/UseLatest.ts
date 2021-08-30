@@ -4,12 +4,10 @@
  * @Copyright: Technology Studio
 **/
 
-import { RefObject, useRef, useEffect } from 'react'
+import { RefObject, useRef } from 'react'
 
 export const useLatest = <TYPE>(value: TYPE): RefObject<TYPE> => {
   const ref = useRef(value)
-  useEffect(() => {
-    ref.current = value
-  }, [value])
+  ref.current = value
   return ref
 }
