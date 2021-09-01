@@ -4,9 +4,9 @@
  * @Copyright: Technology Studio
 **/
 
-import { RefObject, useRef } from 'react'
+import { MutableRefObject, useRef } from 'react'
 
-export const useLatest = <TYPE>(value: TYPE): RefObject<TYPE> => {
+export const useLatest = <TYPE>(value: TYPE): MutableRefObject<TYPE> => {
   const ref = useRef(value)
   ref.current = value
   return ref
