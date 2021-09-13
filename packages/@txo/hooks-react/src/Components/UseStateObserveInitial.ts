@@ -14,7 +14,11 @@ import {
 import { useLatest } from './UseLatest'
 
 export const useStateObserveInitial = <S,>(initialState: S): [S, Dispatch<S>] => {
-  const recentState = useLatest<S>(initialState)
+  const recentState = useLatest<S>(
+    typeof initialState === 'function'
+      ? (() => initialState) as unknown as S
+      : initialState,
+  )
   const [state, _setState] = useState<S>(initialState)
   const setState: Dispatch<S> = useCallback((value: S) => {
     _setState(value)
