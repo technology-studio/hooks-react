@@ -19,7 +19,7 @@ export const useStateObserveInitial = <S,>(initialState: S): [S, Dispatch<S>] =>
       ? (() => initialState) as unknown as S
       : initialState,
   )
-  const [state, _setState] = useState<S>(initialState)
+  const [state, _setState] = useState<S>(recentState.current)
   const setState: Dispatch<S> = useCallback((value: S) => {
     _setState(value)
     recentState.current = value
