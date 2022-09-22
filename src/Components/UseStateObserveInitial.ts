@@ -4,8 +4,8 @@
  * @Copyright: Technology Studio
 **/
 
+import type { Dispatch } from 'react'
 import {
-  Dispatch,
   useState,
   useCallback,
   useLayoutEffect,
@@ -13,7 +13,7 @@ import {
 
 import { useLatest } from './UseLatest'
 
-export const useStateObserveInitial = <S,>(initialState: S): [S, Dispatch<S>] => {
+export const useStateObserveInitial = <S>(initialState: S): [S, Dispatch<S>] => {
   const recentState = useLatest<S>(
     typeof initialState === 'function'
       ? (() => initialState) as unknown as S
