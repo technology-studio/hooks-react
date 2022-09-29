@@ -5,7 +5,12 @@
  * @Copyright: Technology Studio
 **/
 
-import React, { DependencyList } from 'react'
+import type { DependencyList } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react'
 
 const DEFAULT_KEY = 'default'
 
@@ -22,14 +27,14 @@ export const useSuppressableEffect = (
   key?: string,
 ): void => {
   const mapKey = key ?? DEFAULT_KEY
-  const isSuppressedMapRef = React.useRef<Record<string, boolean>>({})
-  const suppressEffect = React.useCallback(() => {
+  const isSuppressedMapRef = useRef<Record<string, boolean>>({})
+  const suppressEffect = useCallback(() => {
     isSuppressedMapRef.current[mapKey] = true
   }, [isSuppressedMapRef])
-  React.useEffect(() => {
+  useEffect(() => {
     isSuppressedMapRef.current[mapKey] = false
   }, [clearSuppressDeps])
-  React.useEffect(() => (
+  useEffect(() => (
     effect({
       suppressEffect,
       isSuppressed: !!isSuppressedMapRef.current[mapKey],

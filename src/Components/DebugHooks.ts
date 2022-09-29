@@ -4,10 +4,13 @@
  * @Copyright: Technology Studio
 **/
 
-import { useRef, useEffect } from 'react'
+import {
+  useRef,
+  useEffect,
+} from 'react'
 import { debugDiffObjects } from '@txo/functional'
 
-export const usePrevious = <VALUE,>(value: VALUE): VALUE | undefined => {
+export const usePrevious = <VALUE>(value: VALUE): VALUE | undefined => {
   const ref = useRef<VALUE>()
   useEffect(() => {
     ref.current = value
