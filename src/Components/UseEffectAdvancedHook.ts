@@ -30,14 +30,16 @@ export const useSuppressableEffect = (
   const isSuppressedMapRef = useRef<Record<string, boolean>>({})
   const suppressEffect = useCallback(() => {
     isSuppressedMapRef.current[mapKey] = true
-  }, [isSuppressedMapRef])
+  }, [mapKey])
   useEffect(() => {
     isSuppressedMapRef.current[mapKey] = false
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- NOTE: we only want to run this effect when clearSuppressDeps is changed
   }, [clearSuppressDeps])
   useEffect(() => (
     effect({
       suppressEffect,
       isSuppressed: !!isSuppressedMapRef.current[mapKey],
     })
-  ), [...(deps || []), mapKey])
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- NOTE: we want to run when custom dependencies change
+  ), [...(deps || []), suppressEffect, mapKey])
 }
