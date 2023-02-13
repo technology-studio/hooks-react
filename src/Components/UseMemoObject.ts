@@ -14,7 +14,7 @@ export const useMemoObject = <OBJECT extends Record<string, unknown> | undefined
     return previousValueRef.current
   }
 
-  if (!value || !previousValue) {
+  if ((value == null) || (previousValue == null)) {
     previousValueRef.current = value
     return previousValueRef.current
   }
