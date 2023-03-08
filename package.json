@@ -1,6 +1,6 @@
 {
   "name": "@txo/hooks-react",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "description": "Technology Studio - Hooks react",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -34,7 +34,7 @@
     "update-boilerplate-version": "./scripts/update-boilerplate-version.sh"
   },
   "dependencies": {
-    "@txo/functional": "^4.5.2"
+    "@txo/functional": "^4.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
