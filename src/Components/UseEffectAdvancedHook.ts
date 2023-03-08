@@ -41,5 +41,5 @@ export const useSuppressableEffect = (
       isSuppressed: !!isSuppressedMapRef.current[mapKey],
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- NOTE: we want to run when custom dependencies change
-  ), [...(deps || []), suppressEffect, mapKey])
+  ), [...deps, suppressEffect, mapKey])
 }

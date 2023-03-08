@@ -14,7 +14,7 @@ export const useMemoObject = <OBJECT extends Record<string, unknown> | undefined
     return previousValueRef.current
   }
 
-  if (!value || !previousValue) {
+  if ((value == null) || (previousValue == null)) {
     previousValueRef.current = value
     return previousValueRef.current
   }
@@ -22,6 +22,7 @@ export const useMemoObject = <OBJECT extends Record<string, unknown> | undefined
   if (
     valueKeyList.length !== Object.keys(previousValue).length ||
     valueKeyList.some(key => (
+      // @ts-expect-error - NOTE: uncomment when https://github.com/microsoft/TypeScript/issues/51501 is released
       !(key in previousValue) || previousValue[key] !== value[key]
     ))
   ) {
