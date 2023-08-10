@@ -1,3 +1,10 @@
+## [2.3.16](https://github.com/technology-studio/hooks-react/compare/v2.3.15...v2.3.16) (2023-08-10)
+
+
+### Bug fixes
+
+* **deps:** update dependency @txo/functional to ^4.6.12 ([3d7795a](https://github.com/technology-studio/hooks-react/commit/3d7795aa8dc96fab46a773d5d0a91f633988655e))
+
 ## [2.3.15](https://github.com/technology-studio/hooks-react/compare/v2.3.14...v2.3.15) (2023-07-25)
 
 
