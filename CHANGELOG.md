@@ -1,3 +1,10 @@
+## [2.3.17](https://github.com/technology-studio/hooks-react/compare/v2.3.16...v2.3.17) (2023-09-20)
+
+
+### Bug fixes
+
+* recreate yarn.lock ([#450](https://github.com/technology-studio/hooks-react/issues/450)) ([450d5cd](https://github.com/technology-studio/hooks-react/commit/450d5cd7af896cd67868e81d9a0fb10b842a99a7))
+
 ## [2.3.16](https://github.com/technology-studio/hooks-react/compare/v2.3.15...v2.3.16) (2023-08-10)
 
 
