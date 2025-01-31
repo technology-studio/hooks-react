@@ -1,0 +1,7 @@
+[
+  "@typescript-eslint/no-magic-numbers",
+  "eslint-comments/require-description",
+  "@typescript-eslint/prefer-destructuring",
+  "@stylistic/operator-linebreak",
+  "@typescript-eslint/no-unsafe-type-assertion"
+]
