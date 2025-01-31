@@ -18,8 +18,8 @@ export const usePrevious = <VALUE>(value: VALUE): VALUE | undefined => {
   return ref.current
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const usePreviousDiff = <VALUE extends {}>(current: VALUE): unknown => {
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- any value can be passed
+export const usePreviousDiff = (current: {}): unknown => {
   const previous = usePrevious(current)
   return debugDiffObjects(previous, current)
 }
