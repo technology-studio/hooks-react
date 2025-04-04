@@ -11,7 +11,7 @@ import {
 import { debugDiffObjects } from '@txo/functional'
 
 export const usePrevious = <VALUE>(value: VALUE): VALUE | undefined => {
-  const ref = useRef<VALUE>()
+  const ref = useRef<VALUE>(undefined)
   useEffect(() => {
     ref.current = value
   })
